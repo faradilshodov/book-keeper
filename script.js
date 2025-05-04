@@ -109,6 +109,17 @@ function fetchBookmarks() {
     buildBookmarks();
 }
 
+// Delete Bookmark
+function deleteBookmark(url) {
+    bookmarks.forEach((bookmark, i) => {
+        if (bookmark.url === url) {
+            bookmarks.splice(i, 1);
+        }
+    });
+    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+    fetchBookmarks();
+}
+
 // Handle Data from Form
 function storeBookmark(e) {
     e.preventDefault();
